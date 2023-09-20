@@ -2,14 +2,25 @@ import json
 from bson import json_util
 from datetime import datetime
 from fastapi import APIRouter, Depends
+import pymongo
+import random
 from dependencies import get_token_header
 from database.database_mongo import DatabaseMongo
 from models.device import PidConfiguration
 import paho.mqtt.client as paho
 from idp import OIDCUser, idp
 from models.data_request import PidValueRequest
-import pymongo
-import random
+
+"""
+API che permettono la gestione dei PID
+
+"""
+
+__author__ = "Aldo Forte"
+__copyright__ = "Sensor Id"
+__email__ = "developer@sensorid.it"
+__status__ = "dev"
+__version__ = "1.0.1"
 
 
 router = APIRouter(
